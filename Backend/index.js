@@ -35,10 +35,10 @@ app.get("/", async(req, res)=>{
 
 app.post("/create", (req, res)=>{
     try{
-        // let data = req.body;
-        // data.id = uuidv4();;
-        // let blog = new Blogs(data);
-        // blog.save();
+        let data = req.body;
+        data.id = uuidv4();;
+        let blog = new Blogs(data);
+        blog.save();
         res.send("done");
     }
     catch(err)
