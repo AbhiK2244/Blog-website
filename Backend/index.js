@@ -14,8 +14,8 @@ const port = 3000;
 let connection = await mongoose.connect(process.env.DB_CONNECTION_STRING);
 
 app.use(cors({
-    origin: ["https://blog-website-frontend-azure.vercel.app", "https://blog-website-frontend-azure.vercel.app/create"],
-    methods: ["POST", "GET", "DELETE", "PUT"],
+    origin: ["https://blog-website-frontend-azure.vercel.app"],
+    methods: ["POST", "GET", "DELETE", "PUT", "OPTIONS"],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }))
