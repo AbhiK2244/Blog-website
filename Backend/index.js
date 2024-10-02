@@ -13,7 +13,11 @@ const port = 3000;
 
 let connection = await mongoose.connect(process.env.DB_CONNECTION_STRING);
 
-app.use(cors())
+app.use(cors({
+    origin: ["https://blog-website-backend-chi.vercel.app"],
+    methods: ["POST", "GET", "DELETE"],
+    credentials: true
+}))
 app.use(bodyParser.json())
 
 app.get("/", async(req, res)=>{

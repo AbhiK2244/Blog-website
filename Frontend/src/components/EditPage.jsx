@@ -24,7 +24,7 @@ const EditPage = () => {
         try
         {
             let data = {title, content};
-            let result = await fetch("http://localhost:3000/create", {method: "POST", headers: {
+            let result = await fetch("https://blog-website-backend-chi.vercel.app/create", {method: "POST", headers: {
                 "Content-Type" : "application/json",
             }, body : JSON.stringify(data)});
             let r = await result.text();

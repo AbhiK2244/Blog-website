@@ -8,7 +8,7 @@ const Hero = ({ data, refreshData }) => {
       let data = {
         id,
       };
-      let result = await fetch("http://localhost:3000/blog/delete", {
+      let result = await fetch("https://blog-website-backend-chi.vercel.app/blog/delete", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
