@@ -22,7 +22,9 @@ const CreateBlog = () => {
         {
             let result = await fetch("https://blog-website-backend-chi.vercel.app/create", {method: "POST", headers: {
                 "Content-Type" : "application/json",
-            }, body : JSON.stringify(data)});
+            }, 
+            credentials: 'include',
+            body : JSON.stringify(data)});
             let r = await result.text();
             console.log(r);
         }
