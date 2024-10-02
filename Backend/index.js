@@ -19,6 +19,9 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }))
+
+app.options('*', cors());
+
 app.use(bodyParser.json())
 
 app.get("/", async(req, res)=>{
