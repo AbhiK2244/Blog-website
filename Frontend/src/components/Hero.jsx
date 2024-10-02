@@ -72,27 +72,3 @@ const Hero = ({ data, refreshData }) => {
 };
 
 export default Hero;
-
-// import React from 'react'
-
-// const Hero = ({data}) => {
-
-//   return (
-//     <div className='w-full py-4 px-10'>
-//       <div className='w-full grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3'>
-//       {data.map((blog) =>
-//         <div title={blog.title} className='p-4 rounded-md shadow-md hover:scale-105 transition duration-300 border' key={blog.id}>
-//           <div>
-//             <div className="title text-xl font-bold">{blog.title}</div>
-//             edit icon
-//             delete icon
-//           </div>
-//           <div className='content'>{blog.content}</div>
-//         </div>
-//       )}
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Hero

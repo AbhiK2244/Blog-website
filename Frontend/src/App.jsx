@@ -26,7 +26,7 @@ function App() {
   return (
     <div className='w-full h-screen'>
       <Navbar />
-      {data.length === 0? <div className='w-full h-[80vh] flex justify-center items-center text-gray-600'>No Blogs. Create one!</div> :<Hero data={data} refreshData={dataReceive} />}
+      {data.length === 0? <div className='w-full h-[80vh] flex justify-center items-center text-gray-600'>No Blogs. (OR It is taking some time to load the data)</div> :<Hero data={data} refreshData={dataReceive} />}
     </div>
   )
 }
