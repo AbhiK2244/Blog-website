@@ -10,6 +10,7 @@ const Hero = ({ data, refreshData }) => {
       };
       let result = await fetch("https://blog-website-backend-chi.vercel.app/blog/delete", {
         method: "DELETE",
+        mode: 'no-cors',
         headers: {
           "Content-Type": "application/json",
         },
