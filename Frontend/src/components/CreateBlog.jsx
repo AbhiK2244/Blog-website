@@ -20,7 +20,7 @@ const CreateBlog = () => {
         //sending data to server
         try
         {
-            let result = await fetch("https://blog-website-backend-chi.vercel.app/create", {method: "POST", headers: {
+            let result = await fetch("https://blog-website-backend-chi.vercel.app/create", {mode: 'no-cors',method: "POST", headers: {
                 "Content-Type" : "application/json",
             }, 
             credentials: 'include',
