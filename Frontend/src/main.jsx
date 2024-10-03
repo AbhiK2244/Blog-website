@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 import CreateBlog from './components/CreateBlog.jsx'
 import EditPage from './components/EditPage.jsx'
+import Post from './components/Post.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/blog/:id",
-    element: <EditPage />,
+    element: <Post />  ,
   },
 ]);
 
