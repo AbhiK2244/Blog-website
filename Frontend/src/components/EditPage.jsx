@@ -37,7 +37,7 @@ const EditPage = () => {
 
             //after editing is complete navigate back to the home page
             setSubmitted(true);
-            navigate(-1);
+            navigate("/");
         }
         catch(err)
         {
