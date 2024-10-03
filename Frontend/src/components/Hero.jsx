@@ -2,10 +2,16 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 import BaseURL from "../../BaseURL.js";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Hero = ({ data, refreshData }) => {
 
+  useEffect(() => {
+    refreshData();
+  }, []);
+
   const navigate = useNavigate();
+
   async function deleteRequest(id) {
     try {
       let data = {
