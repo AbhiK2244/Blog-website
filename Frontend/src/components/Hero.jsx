@@ -39,8 +39,8 @@ const Hero = ({ data, refreshData }) => {
   }
 
   const contentShortner = (content) => {
-    if(content.length > 50)
-      return content.substring(0, 150) + "...";
+    if(content.length > 150)
+      return content.substring(0, 150) + "    see more...";
     else
       return content
   }
@@ -69,7 +69,7 @@ const Hero = ({ data, refreshData }) => {
                 </div>
               </div>
             </div>
-            <div className="content">{contentShortner(blog.content)}</div>
+            <div className="content mt-3">{contentShortner(blog.content)}</div>
           </div>
         ))}
       </div>
