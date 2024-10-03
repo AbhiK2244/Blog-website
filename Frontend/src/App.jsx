@@ -2,13 +2,14 @@ import './App.css'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import { useEffect, useState } from 'react';
+import BaseURL from '../BaseURL.js';
 
 function App() {
   const [data, setData] = useState([]);
-  
+
   async function dataReceive(){
     try{
-      let r = await fetch("https://blog-website-backend-chi.vercel.app/");
+      let r = await fetch(BaseURL);
       let result = await r.json(); 
       console.log(result);
       setData(result);

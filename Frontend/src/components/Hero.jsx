@@ -1,14 +1,16 @@
 import React from "react";
 import { MdEdit, MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
+import BaseURL from "../../BaseURL.js";
 
 const Hero = ({ data, refreshData }) => {
+
   async function deleteRequest(id) {
     try {
       let data = {
         id,
       };
-      let result = await fetch("https://blog-website-backend-chi.vercel.app/blog/delete", {
+      let result = await fetch(`${BaseURL}/blog/delete`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

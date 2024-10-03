@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import BaseURL from '../../BaseURL.js';
 
 const EditPage = () => {
-
     const navigate = useNavigate();
     const location = useLocation();
     const { blog } = location.state || {};
@@ -24,7 +24,7 @@ const EditPage = () => {
         try
         {
             let data = {title, content};
-            let result = await fetch("https://blog-website-backend-chi.vercel.app/create", {method: "POST", headers: {
+            let result = await fetch(`${BaseURL}/create`, {method: "POST", headers: {
                 "Content-Type" : "application/json",
             }, body : JSON.stringify(data)});
             let r = await result.text();
