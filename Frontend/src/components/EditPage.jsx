@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import BaseURL from '../../BaseURL.js';
+import { BiArrowBack } from "react-icons/bi";
 
 const EditPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { blog } = location.state || {};
+    
+    //to know whether the form was submitted before going back
+    const [isSubmitted, setSubmitted] = useState(false);
 
     const[title, setTitle] = useState(blog?.title);
     const[content, setContent] = useState(blog?.content);
@@ -31,6 +35,7 @@ const EditPage = () => {
             console.log(r);
 
             //after editing is complete navigate back to the home page
+            setSubmitted(true);
             navigate('/');
         }
         catch(err)
@@ -41,8 +46,24 @@ const EditPage = () => {
         
     };
 
+    const goBack = () => {
+        //if you are going back before submiting then the content won't be seen on main page as it has been deleted so this will just resubmit the previous value and content will show on main page
+        if(!isSubmitted)
+        {
+            handleSubmit();
+        }
+        navigate(-1);
+      };
+
     return (
         <div>
+            <button
+        onClick={goBack}
+        className="flex items-center space-x-1 px-1 my-2 font-bold"
+      >
+        <BiArrowBack size={24} />
+        <span>Go Back</span>
+      </button>
             <div className='w-3/4 m-auto py-4'>
                 <form onSubmit={(e) => {
                     e.preventDefault();

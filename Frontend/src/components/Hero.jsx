@@ -40,7 +40,7 @@ const Hero = ({ data, refreshData }) => {
 
   const contentShortner = (content) => {
     if(content.length > 150)
-      return content.substring(0, 150) + "    see more...";
+      return content.substring(0, 150) + ".....see more...";
     else
       return content
   }

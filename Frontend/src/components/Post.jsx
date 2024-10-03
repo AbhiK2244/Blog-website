@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import BaseURL from "../../BaseURL.js";
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { BiArrowBack } from "react-icons/bi";
 
 const Post = () => {
     const navigate = useNavigate();
@@ -34,8 +35,21 @@ const Post = () => {
         console.log("Error:", err);
       }
     }
+
+    const goBack = () => {
+      navigate(-1);
+    };
+
   return (
-    <div className='flex justify-center items-center w-full h-screen'>
+    <div>
+      <button
+        onClick={goBack}
+        className="flex items-center space-x-1 px-1 my-2 font-bold"
+      >
+        <BiArrowBack size={24} />
+        <span>Go Back</span>
+      </button>
+    <div className='flex justify-center items-center w-full h-[90vh]'>
       <div
             title={blog.title}
             className="p-4 m-5 rounded-md shadow-md w-full h-[90vh] border"
@@ -73,6 +87,7 @@ const Post = () => {
             <div className="content border mt-5 py-5 shadow-sm px-5 text-xl">{blog.content}</div>
           </div>
     </div>
+  </div>
   )
 }
 
