@@ -55,7 +55,6 @@ const EditPage = () => {
             setContent(blog?.title);
             handleSubmit();
         }
-        navigate(-1);
       };
 
     return (
