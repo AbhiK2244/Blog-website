@@ -16,7 +16,7 @@ let connection = await mongoose.connect(process.env.DB_CONNECTION_STRING);
 app.use(cors({
     origin: "https://blog-website-frontend-azure.vercel.app",
     methods: ["POST", "GET", "DELETE", "PUT"],
-    // credentials: true
+    credentials: true
 }))
 
 app.use(bodyParser.json())
