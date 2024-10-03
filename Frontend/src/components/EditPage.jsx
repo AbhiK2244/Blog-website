@@ -8,6 +8,7 @@ const EditPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { blog } = location.state || {};
+
     
     //to know whether the form was submitted before going back
     const [isSubmitted, setSubmitted] = useState(false);
@@ -36,7 +37,7 @@ const EditPage = () => {
 
             //after editing is complete navigate back to the home page
             setSubmitted(true);
-            navigate('/');
+            navigate(-1);
         }
         catch(err)
         {
@@ -50,6 +51,8 @@ const EditPage = () => {
         //if you are going back before submiting then the content won't be seen on main page as it has been deleted so this will just resubmit the previous value and content will show on main page
         if(!isSubmitted)
         {
+            setTitle(blog?.title);
+            setContent(blog?.title);
             handleSubmit();
         }
         navigate(-1);
