@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import BaseURL from '../../BaseURL.js';
 import { BiArrowBack } from "react-icons/bi";
+import { useEffect } from 'react';
 
 const EditPage = () => {
     const navigate = useNavigate();
@@ -27,11 +28,11 @@ const EditPage = () => {
     }
 
 
-    const handleSubmit = async() => {
+    const handleSubmit = async(titleToSubmit = title, contentToSubmit = content) => {
         //sending data to server
         try
         {
-            let data = {title, content};
+            let data = {title : titleToSubmit, content : contentToSubmit};
             let result = await fetch(`${BaseURL}/create`, {method: "POST", headers: {
                 "Content-Type" : "application/json",
             }, body : JSON.stringify(data)});
@@ -53,12 +54,10 @@ const EditPage = () => {
     const goBack = () => {
         //if you are going back before submiting then the content won't be seen on main page as it has been deleted so this will just resubmit the previous value and content will show on main page
         if(!isSubmitted)
-        {
-            setTitle(oldTitle);
-            setContent(oldContent);
-            handleSubmit();
+        { 
+            handleSubmit(blog?.title, blog?.content);
         }
-      };
+      }; 
 
     return (
         <div>
