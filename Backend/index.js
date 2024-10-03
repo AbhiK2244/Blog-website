@@ -12,14 +12,14 @@ const app = express();
 const port = 3000;
 
 let connection = await mongoose.connect(process.env.DB_CONNECTION_STRING);
-
-app.use(cors({
-    origin: "http://localhost:5173",
-    // origin: "https://blog-website-frontend-azure.vercel.app",
-    methods: ["POST", "GET", "DELETE", "PUT"],
-    credentials: true
-}))
-// app.use(cors())
+const corsOptions = {
+    origin: "https://blog-website-frontend-azure.vercel.app",
+    methods: ["POST", "GET", "DELETE", "PUT", "OPTIONS"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
+};
+app.use(cors(corsOptions))
+app.options('*', cors(corsOptions));
 
 app.use(bodyParser.json())
 
